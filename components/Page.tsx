@@ -11,21 +11,21 @@ interface IProps {
 const Page: React.FC<IProps> = ({ children }) => {
   const router = useRouter()
   if (
-    (router.pathname == "/" && uid!) ||
     router.pathname == "/register" ||
     router.pathname == "/login" ||
     router.pathname == "/request" ||
     router.pathname == "/reset"
   ) {
     return <>{children}</>
+  } else {
+    return (
+      <main className={styles.main}>
+        <Header />
+        {children}
+        <Navbar />
+      </main>
+    )
   }
-  return (
-    <main className={styles.main}>
-      <Header />
-      {children}
-      <Navbar />
-    </main>
-  )
 }
 
 export default Page

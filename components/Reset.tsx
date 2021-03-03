@@ -14,7 +14,6 @@ const RESET_MUTATION = gql`
     }
   }
 `
-
 const Reset = ({ token }: any) => {
   const { inputs, handleChange, resetForm } = useForm({
     email: "",
@@ -40,14 +39,14 @@ const Reset = ({ token }: any) => {
   }
   if (data?.redeemUserPasswordResetToken === null) {
     return (
-      <>
-        <p>Success! You can Now sign in</p>
+      <div className={styles.singUpForm}>
+        <p className={styles.formTitle}>Felicitaciones! ahora puesde iniciar session </p>
         <button className={styles.submitButtom} type="submit">
           <Link href="/login">
             <a href="#">Ingresa</a>
           </Link>
         </button>
-      </>
+      </div>
     )
   }
   return (
