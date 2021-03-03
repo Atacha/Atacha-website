@@ -1,11 +1,11 @@
 import * as React from "react"
 import { AppProps } from "next/app"
 import { ApolloProvider } from "@apollo/client"
-import { AuthProvider, useAuth } from "../hooks/useAuth"
-import { useRouter } from "next/router"
+// import { AuthProvider, useAuth } from "../hooks/useAuth"
+// import { useRouter } from "next/router"
 
 import Page from "../components/Page"
-import LoginPage from "./login"
+// import LoginPage from "./login"
 
 import Router from "next/router"
 import Head from "next/head"
@@ -20,34 +20,36 @@ Router.events.on("routeChangeComplete", () => Nprogress.done())
 Router.events.on("routeChangeError", () => Nprogress.done())
 
 function MyApp({ Component, pageProps, apollo }: AppProps | any): JSX.Element {
-  const user = useAuth()
-  const router = useRouter()
+  // const user = useAuth()
+  // const router = useRouter()
 
-  React.useEffect(() => {
-    if (router.pathname == "/" && user!) {
-      router.push("/login")
-    }
-  }, [user])
+  // React.useEffect(() => {
+  //   if (router.pathname == "/" && user!) {
+  //     router.push("/login")
+  //   }
+  // }, [user])
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Atacha</title>
       </Head>
-      <Page>
-        <ApolloProvider client={apollo}>
-          <AuthProvider>{user ? <Component {...pageProps} /> : <LoginPage />}</AuthProvider>
-        </ApolloProvider>
-      </Page>
+      <ApolloProvider client={apollo}>
+        <Page>
+          {/* <AuthProvider>{user ? <Component {...pageProps} /> : <LoginPage />}</AuthProvider> */}
+          <Component {...pageProps} />
+        </Page>
+      </ApolloProvider>
     </>
   )
 }
 
-MyApp.getInitialProps = async ({ Component, ctx }: AppProps | any) => {
-  let pageProps = { query: {} }
+MyApp.getInitialProps = async function ({ Component, ctx }: any) {
+  let pageProps = {}
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx)
   }
+  //@ts-ignore
   pageProps.query = ctx.query
   return { pageProps }
 }

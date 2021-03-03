@@ -3,20 +3,8 @@ import styles from "../assets/styles/components/Header.module.scss"
 import SearchBar from "./SearchBar"
 import Image from "next/image"
 import React from "react"
-import { useRouter } from "next/router"
-import { useAuth } from "../hooks/useAuth"
 
 const Header: React.FC = () => {
-  const router = useRouter()
-  const { uid } = useAuth()
-
-  if (
-    (router.pathname == "/" && uid!) ||
-    router.pathname == "/registro" ||
-    router.pathname == "/login"
-  ) {
-    return null
-  }
   return (
     <div className={styles.header}>
       <div className={styles.logoContainer}>
