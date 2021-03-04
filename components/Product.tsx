@@ -1,5 +1,6 @@
 import Link from "next/link"
 import DeleteProduct from "./DeleteProduct"
+import formatMoney from "../lib/formatMoney"
 
 const Product = ({ product }: any) => {
   return (
@@ -8,7 +9,7 @@ const Product = ({ product }: any) => {
       <div>
         <Link href={`/product/${product?.id}`}>{product?.name}</Link>
       </div>
-      <p>{product?.price}</p>
+      <p>f{formatMoney(product?.price)}</p>
       <p>{product?.description}</p>
       <div>
         <Link
