@@ -35,8 +35,6 @@ const UpdateProduct: React.FC = ({ id }) => {
   ] = useMutation(UPDATE_PRODUCT_MUTATION)
 
   const { inputs, handleChange, clearForm, resetForm } = useForm(data?.Product)
-  console.log(inputs)
-
   if (loading) return <p>loading...</p>
   return (
     <form

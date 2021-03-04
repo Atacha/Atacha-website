@@ -1,6 +1,7 @@
 import * as React from "react"
 import { AppProps } from "next/app"
 import { ApolloProvider } from "@apollo/client"
+import { CartStateProvider } from "../hooks/useCartState"
 // import { AuthProvider, useAuth } from "../hooks/useAuth"
 // import { useRouter } from "next/router"
 
@@ -35,10 +36,12 @@ function MyApp({ Component, pageProps, apollo }: AppProps | any): JSX.Element {
         <title>Atacha</title>
       </Head>
       <ApolloProvider client={apollo}>
-        <Page>
-          {/* <AuthProvider>{user ? <Component {...pageProps} /> : <LoginPage />}</AuthProvider> */}
-          <Component {...pageProps} />
-        </Page>
+        <CartStateProvider>
+          <Page>
+            {/* <AuthProvider>{user ? <Component {...pageProps} /> : <LoginPage />}</AuthProvider> */}
+            <Component {...pageProps} />
+          </Page>
+        </CartStateProvider>
       </ApolloProvider>
     </>
   )

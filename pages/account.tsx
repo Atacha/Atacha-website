@@ -6,13 +6,13 @@ import SignOut from "../components/SignOut"
 const Account: React.FC = () => {
   const user = useUser()
   // const auth = useAuth()
-  // if (user?)
-  //   return (
-  //     <div>
-  //       Debes inicias sesion primero <br />
-  //       <Link href="/login">Incio Sesion</Link>
-  //     </div>
-  //   )
+  if (!user)
+    return (
+      <div>
+        Debes inicias sesion primero <br />
+        <Link href="/login">Incio Sesion</Link>
+      </div>
+    )
   return (
     <div>
       <h2>{`Welcome! ${user.name} `}</h2>

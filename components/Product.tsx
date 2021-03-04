@@ -9,7 +9,7 @@ const Product = ({ product }: any) => {
       <div>
         <Link href={`/product/${product?.id}`}>{product?.name}</Link>
       </div>
-      <p>f{formatMoney(product?.price)}</p>
+      <p>{formatMoney(product?.price)}</p>
       <p>{product?.description}</p>
       <div>
         <Link
