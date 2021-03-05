@@ -1,5 +1,5 @@
-import React from "react"
 import formatMoney from "../lib/formatMoney"
+import RemoveFromCart from "./RemoveFromCart"
 
 const CartItem = ({ cartItem }: any) => {
   const { product } = cartItem
@@ -14,6 +14,7 @@ const CartItem = ({ cartItem }: any) => {
           <em> total: {formatMoney(product.price * cartItem.quantity)}</em>
         </p>
       </div>
+      <RemoveFromCart id={cartItem.id} quiantity ={cartItem.quantity}/>
     </li>
   )
 }

@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client"
 import DisplayError from "./ErrorMessage"
 import gql from "graphql-tag"
+import Router from "next/router"
 import useForm from "../hooks/useForm"
 
 const SINGLE_PRODUCT_QUERY = gql`
@@ -35,30 +36,28 @@ const UpdateProduct: React.FC = ({ id }) => {
   ] = useMutation(UPDATE_PRODUCT_MUTATION)
 
   const { inputs, handleChange, clearForm, resetForm } = useForm(data?.Product)
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+    const res = await updateProduct({
+      variables: {
+        id,
+        name: inputs.name,
+        description: inputs.description,
+        price: inputs.price,
+      },
+    }).catch(console.error)
+    // Submit the inputfields to the backend:
+    clearForm()
+    // Go to that product's page!
+    Router.push({
+      pathname: `/product/${res.data.updateProduct.id}`,
+    })
+  }
+
   if (loading) return <p>loading...</p>
   return (
-    <form
-      onSubmit={async (e) => {
-        e.preventDefault()
-        const res = await updateProduct({
-          variables: {
-            id,
-            name: inputs.name,
-            description: inputs.description,
-            price: inputs.price,
-          },
-        }).catch(console.error)
-        console.log(res)
-        // Submit the inputfields to the backend:
-        // TODO: Handle Submit!!!
-        // const res = await createProduct();
-        // clearForm();
-        // // Go to that product's page!
-        // Router.push({
-        //   pathname: `/product/${res.data.createProduct.id}`,
-        // });
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <DisplayError error={error || updateError} />
       <fieldset disabled={updateLoading}>
         <label htmlFor="name">

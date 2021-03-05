@@ -1,6 +1,7 @@
 import Link from "next/link"
 import DeleteProduct from "./DeleteProduct"
 import formatMoney from "../lib/formatMoney"
+import AddToCart from "./AddCart"
 
 const Product = ({ product }: any) => {
   return (
@@ -22,6 +23,7 @@ const Product = ({ product }: any) => {
         >
           Editar
         </Link>
+        <AddToCart id={product?.id} />
         <DeleteProduct id={product?.id}>Eliminar</DeleteProduct>
       </div>
     </div>

@@ -11,7 +11,7 @@ const DELETE_PRODUCT_MUTATION = gql`
   }
 `
 
-const DeleteProduct: React.FC = ({ id, children }) => {
+const DeleteProduct: React.FC = ({ id, children }: any) => {
   const update = (cache: any, payload: any): void => {
     cache.evict(cache.identify(payload.data.deleteProduct))
   }

@@ -3,22 +3,22 @@ import { createContext, useContext, useState } from "react"
 const LocalStateContext = createContext()
 const LocalStateProvider = LocalStateContext.Provider
 
-const CartStateProvider=({ children })=> {
+const CartStateProvider = ({ children }: any) => {
   // This is our own custom provider! We will store data (state)
   //and functionality (updaters) in here and anyone can access it via the consumer!
 
   // Closed cart by default
   const [cartOpen, setCartOpen] = useState(false)
 
-  const toggleCart = () =>{
+  const toggleCart = () => {
     setCartOpen(!cartOpen)
   }
 
-  const closeCart: = () =>{
+  const closeCart = () => {
     setCartOpen(false)
   }
 
-  const openCart = () =>{
+  const openCart = () => {
     setCartOpen(true)
   }
 
