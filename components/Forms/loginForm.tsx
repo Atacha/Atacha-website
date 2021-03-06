@@ -164,7 +164,7 @@ const LoginForm: React.FC = () => {
           <div className={styles.RegisterOption}>
             <p>¿Eres nuevo en Atacha?</p>
             <div className={styles.resgisterLink}>
-              <Link href="/registro">
+              <Link href="/register">
                 <a href="#">Registrate</a>
               </Link>
             </div>

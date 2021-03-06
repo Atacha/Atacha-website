@@ -6,7 +6,7 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa"
 const data = [
   {
     content: "Brinda a tu vida la posibilidad de cumplir todo aquello que siempre has deseado",
-    imageUrl: "/images/atachaLogo.svg",
+    imageUrl: "/images/logo2.png",
   },
   {
     content: "Llena tu baúl con lo que más aprecias o estás dispuesto a cambiar",

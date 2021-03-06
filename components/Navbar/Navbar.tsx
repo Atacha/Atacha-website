@@ -19,19 +19,19 @@ const Navbar: React.FC = () => {
   }
   return (
     <div className={styles.navbar}>
-      <Link href="/inventario">
+      <Link href="/inventory">
         <div
-          className={router.pathname == "/inventario" ? styles.navbarItemActive : styles.navbarItem}
+          className={router.pathname == "/inventory" ? styles.navbarItemActive : styles.navbarItem}
         >
           <div className={styles.image}>
             <Image src="/images/mochila.png" alt="logo" layout="responsive" width={0} height={0} />
           </div>
         </div>
       </Link>
-      <Link href="/mercadillo">
+      <Link href="/shop">
         <div
           className={
-            router.pathname == "/mercadillo" || router.pathname == "/"
+            router.pathname == "/shop" || router.pathname == "/"
               ? styles.navbarItemActive
               : styles.navbarItem
           }
@@ -47,8 +47,8 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </Link>
-      <Link href="/deseos">
-        <div className={router.pathname == "/deseos" ? styles.navbarItemActive : styles.navbarItem}>
+      <Link href="/wishes">
+        <div className={router.pathname == "/wishes" ? styles.navbarItemActive : styles.navbarItem}>
           <div className={styles.image}>
             <Image src="/images/dreams.png" alt="logo" layout="responsive" width={0} height={0} />
           </div>
