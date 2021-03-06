@@ -10,9 +10,9 @@ interface IProps {
 const Page: React.FC<IProps> = ({ children }) => {
   return (
     <main className={styles.main}>
-      <Header />
+      {/* <Header /> */}
       {children}
-      <Navbar />
+      {/* <Navbar /> */}
     </main>
   )
 }

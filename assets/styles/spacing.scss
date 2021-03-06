@@ -1,0 +1,19 @@
+@mixin flex($direction: rows, $horizontal: center, $vertical: center) {
+ display: flex;
+ flex-direction: $direction;
+ align-items: $vertical;
+ justify-content: $horizontal;
+}
+
+@function getSpacing($times) {
+ @return 10px * $times;
+}
+ ;
+
+@mixin paddingAndMargin($multiPadding: 1, $multiMarging: 1) {
+ margin: $sskSpacingUnit * $multiPadding;
+ padding: $sskSpacingUnit * $multiMarging;
+}
+@mixin borderRadius($multiPadding: 1, $multiMarging: 1) {
+ border-radius:getSpacing(2) ;
+}

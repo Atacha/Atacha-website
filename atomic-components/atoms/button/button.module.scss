@@ -1,0 +1,16 @@
+@import '../../../assets/styles/index.scss';
+
+.button {
+  min-width: getSpacing(30);
+  min-height: getSpacing(4.6);
+  border-radius: getSpacing(4.6) ;
+  color: $mainColor-1;
+  background: $mainColor-1;
+  border: none;
+  background: $darkColor-1;
+  @include flex();
+  @include borderRadius();
+}
+.buttonIcon {
+  border: red solid 1px;
+}
