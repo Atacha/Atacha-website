@@ -18,25 +18,29 @@ const REMOVE_TO_CART_MUTATION = gql`
 `
 
 const update = (cache: any, payload: any) => {
-  cache.evict(cache.identify(payload.data.deleteCartItem))
+  console.log("cache:", cache)
+  console.log("payload:", payload)
+
+  // cache.evict(cache.identify(payload.data.uoCartItem))
 }
 
 const RemoveFromCart = ({ id }: any) => {
-  const [removeFromCart, { loading }] = useMutation(REMOVE_FROM_CART_MUTATION, {
-    variables: { id },
-    update,
-    //  optimisticResponse: {
-    //    deleteCartItem: {
-    //      __typename: 'CartItem',
-    //      id,
-    //    },
-    //  },
-  })
-
-  const [removeToCart, { loading: removeLoading }] = useMutation(REMOVE_TO_CART_MUTATION, {
+  // const [removeFromCart, { loading }] = useMutation(REMOVE_FROM_CART_MUTATION, {
+  //   variables: { id },
+  //   update,
+  //   //  optimisticResponse: {
+  //   //    deleteCartItem: {
+  //   //      __typename: 'CartItem',
+  //   //      id,
+  //   //    },
+  //   //  },
+  // })
+  console.log(id);
+  const [removeToCart, { data, loading: removeLoading }] = useMutation(REMOVE_TO_CART_MUTATION, {
     variables: { id },
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   })
+  console.log(data);
 
   return (
     <button
