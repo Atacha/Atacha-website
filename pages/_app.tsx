@@ -21,11 +21,11 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const user = useAuth()
   const router = useRouter()
 
-  React.useEffect(() => {
-    if (router.pathname == "/" && user!) {
-      router.push("/login")
-    }
-  }, [user])
+  // React.useEffect(() => {
+  //   if (router.pathname == "/" && user!) {
+  //     router.push("/login")
+  //   }
+  // }, [user])
   return (
     <>
       <Head>
@@ -33,7 +33,7 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <title>Atacha</title>
       </Head>
       <Page>
-        <AuthProvider>{user ? <Component {...pageProps} /> : <LoginPage />}</AuthProvider>
+        <Component {...pageProps} /> 
       </Page>
     </>
   )
