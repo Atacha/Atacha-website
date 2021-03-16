@@ -1,7 +1,7 @@
 import SingleProduct from "../../components/SingleProduct"
 
-const Producto = ({ query }) => {
+const Product = ({ query }) => {
   return <SingleProduct id={query.id} />
 }
 
-export default Producto
+export default Product

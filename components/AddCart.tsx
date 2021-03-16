@@ -15,7 +15,6 @@ const AddToCart = ({ id }: any) => {
     variables: { id },
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   })
-
   return (
     <button disabled={loading} type="button" onClick={addToCart}>
       Add{loading && "ing"} To Cart 🛒

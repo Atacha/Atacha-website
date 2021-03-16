@@ -1,4 +1,5 @@
 import formatMoney from "../lib/formatMoney"
+import RemoveOneToCart from "./RemoveOneToCart"
 import RemoveFromCart from "./RemoveFromCart"
 
 const CartItem = ({ cartItem }: any) => {
@@ -14,7 +15,8 @@ const CartItem = ({ cartItem }: any) => {
           <em> total: {formatMoney(product.price * cartItem.quantity)}</em>
         </p>
       </div>
-      <RemoveFromCart id={cartItem.id} quiantity ={cartItem.quantity}/>
+      <RemoveOneToCart id={cartItem.product.id} />
+      <RemoveFromCart id={cartItem.id} />
     </li>
   )
 }

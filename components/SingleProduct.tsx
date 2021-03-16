@@ -21,7 +21,7 @@ const SINGLE_ITEM_QUERY = gql`
   }
 `
 
-const SingleProduct = ({ id }) => {
+const SingleProduct = ({ id }: any) => {
   const { data, loading, error } = useQuery(SINGLE_ITEM_QUERY, {
     variables: {
       id,

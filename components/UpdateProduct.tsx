@@ -25,18 +25,22 @@ const UPDATE_PRODUCT_MUTATION = gql`
   }
 `
 
-const UpdateProduct: React.FC = ({ id }) => {
+const UpdateProduct: React.FC = ({ id }: any) => {
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: { id },
   })
 
-  const [
-    updateProduct,
-    { data: updateData, errror: updateError, loading: updateLoading },
-  ] = useMutation(UPDATE_PRODUCT_MUTATION)
+  const [updateProduct, { errror: updateError, loading: updateLoading }] = useMutation(
+    UPDATE_PRODUCT_MUTATION,
+  )
 
-  const { inputs, handleChange, clearForm, resetForm } = useForm(data?.Product)
-
+  const { inputs, handleChange, clearForm, resetForm } = useForm(
+    data?.Product || {
+      name: "",
+      description: "",
+      price: "",
+    },
+  )
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     const res = await updateProduct({
