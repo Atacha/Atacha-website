@@ -12,7 +12,7 @@ import LoginPage from "./login"
 import Nprogress from "nprogress"
 import "nprogress/nprogress.css"
 import "../assets/styles/global.scss"
-
+// hola
 Router.events.on("routeChangeStart", () => Nprogress.start())
 Router.events.on("routeChangeComplete", () => Nprogress.done())
 Router.events.on("routeChangeError", () => Nprogress.done())
