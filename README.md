@@ -1,6 +1,13 @@
-# ATACHA
+<div align="center">
+  <img src="./assets/images/logo.png" />
+</div>
+<div align="center">
+    <h1 style="font-weight: bold;">ATACHA</h1>
+</div>
 
 _Welcome to ATACHA, we are a startup dedicated to facilitating the exchange of objects between people, as well as an e-commerce that provides a user-friendly solution with an intuitive UI._
+
+<div align="center">
 
 | **Summary** |
 | ------ |
@@ -10,6 +17,8 @@ _Welcome to ATACHA, we are a startup dedicated to facilitating the exchange of o
 | [* Execution](#execution) |
 | [2. License](#license) |
 | [3. Acknowledgments](#acknowledgments) |
+
+</div>
 
 <a name="intro"></a>
 
@@ -51,7 +60,7 @@ npm run start #or
 yarn start
 ```
 
-**2.** Run production mode on the Front-end
+**2.** Build production mode on the Front-end
 
 > Build production files
 
@@ -61,6 +70,8 @@ yarn build
 ```
 
 **3.** Run development mode on the Front-end
+
+> Run develop files
 
 ```sh
 npm run dev #or
